@@ -19,11 +19,12 @@ public class CheeseSteps {
 
     @Before
     public void setUp() {
-        driver = createWebDriver();
+//        driver = createWebDriver();
     }
 
     @Given("I am on the Google search page")
     public void I_visit_google() {
+        driver = createWebDriver();
         driver.get("https:\\www.google.com");
     }
 
@@ -49,6 +50,8 @@ public class CheeseSteps {
 
     @After()
     public void closeBrowser() {
-        driver.quit();
+        if (driver != null) {
+            driver.quit();
+        }
     }
 }
